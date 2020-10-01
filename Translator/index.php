@@ -1,20 +1,4 @@
-<?php 
 
-	function tra($target,$original)
-	{
-	$apiKey = 'Your API KEY';
-    $text = $_GET['source'];
-	$url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($text) . '&source=en&target='.$target;
-	$handle = curl_init($url);
-    curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($handle);                 
-    $responseDecoded = json_decode($response, true);
-    curl_close($handle);
-    echo $original.":". $responseDecoded['data']['translations'][0]['translatedText']."<br>";
- 
-	}
-
-?>
 
 <!DOCTYPE html>
 <html>
@@ -25,7 +9,7 @@
 <body>
 	
 
-<form class="form-style-9" name="frm_translator" action="" method="GET">
+<form class="form-style-9" name="frm_translator" action="something.php" method="GET">
 	<ul>
 		<li><center><h2>Translator </h2></center></li>
 		<li>
